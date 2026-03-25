@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LiquidityOS | Dashboard</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c4c6cd",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#18a659",
+              "secondary-fixed": "#cfe5ff",
+              "on-error": "#ffffff",
+              "primary-fixed": "#d2e4fb",
+              "on-tertiary-fixed-variant": "#005228",
+              "on-primary-fixed": "#0b1d2d",
+              "inverse-primary": "#b7c8de",
+              "surface-container-high": "#d9eaff",
+              "on-background": "#051d30",
+              "tertiary-fixed": "#7efba4",
+              "primary": "#041627",
+              "secondary-fixed-dim": "#b3c9e2",
+              "on-error-container": "#93000a",
+              "outline": "#74777d",
+              "on-primary-container": "#8192a7",
+              "inverse-on-surface": "#e8f2ff",
+              "surface-container-highest": "#cfe5ff",
+              "tertiary-fixed-dim": "#61de8a",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#4f6073",
+              "secondary-container": "#cce2fc",
+              "surface-bright": "#f7f9ff",
+              "surface-container": "#e3efff",
+              "on-secondary-container": "#50657b",
+              "surface-container-low": "#edf4ff",
+              "on-surface": "#051d30",
+              "on-secondary-fixed": "#051d30",
+              "secondary": "#4b6076",
+              "primary-container": "#1a2b3c",
+              "on-secondary-fixed-variant": "#34495e",
+              "background": "#f7f9ff",
+              "tertiary-container": "#003115",
+              "surface-dim": "#c6dcf6",
+              "surface": "#f7f9ff",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-variant": "#cfe5ff",
+              "tertiary": "#001a08",
+              "on-surface-variant": "#44474c",
+              "inverse-surface": "#1d3246",
+              "on-primary-fixed-variant": "#38485a",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#b7c8de",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed": "#00210c"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f7f9ff;
+      }
+      .glass-panel {
+        background: rgba(207, 229, 255, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      .gradient-primary {
+        background: linear-gradient(135deg, #041627 0%, #1a2b3c 100%);
+      }
+      .pulse-bar {
+        box-shadow: 0 0 8px rgba(126, 251, 164, 0.4);
+      }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/60 dark:bg-slate-950/60 backdrop-blur-xl border-b border-slate-200/15 dark:border-slate-800/15 shadow-sm flex justify-between items-center px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50 font-headline">LiquidityOS</span>
+<div class="hidden md:flex items-center space-x-6 font-manrope text-sm font-semibold tracking-tight">
+<a class="text-slate-900 dark:white border-b-2 border-slate-900 dark:border-slate-50 pb-1" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-200 ease-in-out" href="#">Data</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-200 ease-in-out" href="#">Forecasts</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-200 ease-in-out" href="#">Actions</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-200 ease-in-out" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/20">
+<img class="h-full w-full object-cover" data-alt="professional portrait of a financial officer in a modern office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfxQhsrayMzPT8JIz4NnUk0AFMirAXdIQfs4C8R_WnwILohN6LnthArc--z7q6PshwcMWArN3o-Ul1J6R92vQr3VMDOng411a6Mdpmzrndefm9KQMLN0UWKzAiC2vaiqrkqmLjQbSHgH4mk7K2NHTTnDhMRPdjHQ2GLm_UIeB_bwqHM6PZILhkr44elzVHlG3ii9ZIFVSiWPx6FhS3E7sAJsux2QvTdTrpAeQ4-qtJGlHO9yzLZRtzXe8pSbBxvqtHOBEUxHCGhts"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-16 bg-slate-100 dark:bg-slate-900 flex flex-col p-4 space-y-6">
+<div class="flex flex-col gap-1 px-2 pt-4">
+<span class="font-manrope font-bold text-slate-900 dark:text-slate-50 text-sm">Financial Metrics</span>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant">Live Treasury Data</span>
+</div>
+<div class="flex flex-col space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform cursor-pointer rounded-md">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span class="font-inter text-xs font-medium">Live Cash Balance</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-md shadow-sm cursor-default">
+<span class="material-symbols-outlined text-lg">hourglass_empty</span>
+<span class="font-inter text-xs font-medium">DCOH</span>
+</div>
+</div>
+<div class="mt-auto flex flex-col space-y-1 border-t border-slate-200 dark:border-slate-800 pt-4 pb-20">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer rounded-md">
+<span class="material-symbols-outlined text-lg">support_agent</span>
+<span class="font-inter text-xs font-medium">Support</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 cursor-pointer rounded-md">
+<span class="material-symbols-outlined text-lg">history</span>
+<span class="font-inter text-xs font-medium">Logs</span>
+</div>
+<button class="mt-4 gradient-primary text-white text-xs font-bold py-2 px-4 rounded-lg shadow-lg hover:opacity-90 transition-opacity">
+                Refresh Data
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 p-10 min-h-screen">
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h1 class="font-headline text-3xl font-extrabold tracking-tighter text-on-surface">Executive Treasury Overview</h1>
+<p class="font-body text-sm text-on-surface-variant mt-1">Real-time liquidity analysis for Fiscal Q4</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-surface-container-highest/60 backdrop-blur-md px-4 py-2 rounded-xl flex items-center gap-2 border border-white/20">
+<span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">error</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Critical Alert</span>
+<span class="text-error font-headline text-lg font-extrabold leading-none">7 Days Cash on Hand</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Primary Visualization: Waterfall Chart -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h2 class="font-headline text-lg font-bold">Cash Flow Waterfall</h2>
+<span class="text-xs text-on-surface-variant">Projected liquidity movements over next 30 days</span>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium">
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-primary"></span> Opening</div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-tertiary-fixed"></span> Inflow</div>
+<div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-error"></span> Outflow</div>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between px-4">
+<!-- Waterfall Bars -->
+<div class="flex flex-col items-center gap-2 w-16">
+<span class="text-[10px] font-bold text-on-surface-variant">$2.4M</span>
+<div class="w-full bg-primary rounded-t-lg" style="height: 180px;"></div>
+<span class="text-[10px] font-medium">Opening</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-16 relative">
+<span class="text-[10px] font-bold text-on-tertiary-container">+$840k</span>
+<div class="w-full bg-tertiary-fixed/40 border-2 border-tertiary-fixed pulse-bar rounded-lg mb-20" style="height: 60px;"></div>
+<span class="text-[10px] font-medium absolute bottom-[-24px]">Sales</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-16 relative">
+<span class="text-[10px] font-bold text-on-tertiary-container">+$210k</span>
+<div class="w-full bg-tertiary-fixed/40 border-2 border-tertiary-fixed pulse-bar rounded-lg mb-[140px]" style="height: 20px;"></div>
+<span class="text-[10px] font-medium absolute bottom-[-24px]">Tax Credit</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-16 relative">
+<span class="text-[10px] font-bold text-error">-$1.2M</span>
+<div class="w-full bg-error/20 border-2 border-error rounded-lg mb-[80px]" style="height: 90px;"></div>
+<span class="text-[10px] font-medium absolute bottom-[-24px]">OpEx</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-16 relative">
+<span class="text-[10px] font-bold text-error">-$450k</span>
+<div class="w-full bg-error/20 border-2 border-error rounded-lg mb-[40px]" style="height: 40px;"></div>
+<span class="text-[10px] font-medium absolute bottom-[-24px]">Payroll</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-16">
+<span class="text-[10px] font-bold text-on-surface-variant">$1.8M</span>
+<div class="w-full bg-primary-container rounded-t-lg" style="height: 140px;"></div>
+<span class="text-[10px] font-medium">Net</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="gradient-primary rounded-xl p-6 text-white shadow-xl flex flex-col justify-between h-full">
+<div>
+<h2 class="font-headline text-lg font-bold mb-1">Quick Actions</h2>
+<p class="text-xs text-on-primary-container leading-relaxed">Execute treasury maneuvers to optimize your 7-day outlook.</p>
+</div>
+<div class="flex flex-col gap-3 mt-6">
+<button class="w-full bg-white/10 hover:bg-white/20 border border-white/10 py-3 rounded-lg flex items-center justify-between px-4 transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed">upload_file</span>
+<span class="text-sm font-semibold">Upload Invoice</span>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</button>
+<button class="w-full bg-white/10 hover:bg-white/20 border border-white/10 py-3 rounded-lg flex items-center justify-between px-4 transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">schedule</span>
+<span class="text-sm font-semibold">Defer Payment</span>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Liquidity Summary -->
+<section class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Net Cash Position</span>
+<div class="font-headline text-3xl font-extrabold mt-2 text-on-surface">$1,842,000.00</div>
+</div>
+<div class="flex items-center gap-2 mt-4">
+<span class="material-symbols-outlined text-error text-sm">trending_down</span>
+<span class="text-xs font-medium text-error">-4.2% from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-between border-l-4 border-tertiary-fixed">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Working Capital</span>
+<div class="font-headline text-3xl font-extrabold mt-2 text-on-surface">$540,230.15</div>
+</div>
+<div class="flex items-center gap-2 mt-4">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm">trending_up</span>
+<span class="text-xs font-medium text-on-tertiary-container">+12.8% cycle efficiency</span>
+</div>
+</div>
+</section>
+<!-- Aging Snapshot -->
+<section class="col-span-12 lg:col-span-5 bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-sm font-bold">Aging Snapshot</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">more_horiz</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="font-medium text-on-surface">0-30 Days</span>
+<span class="font-bold">$420,000</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="font-medium text-on-surface">31-60 Days</span>
+<span class="font-bold">$125,500</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 22%;"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[10px] text-on-surface-variant font-medium">TOTAL AR OUTSTANDING</span>
+<span class="text-sm font-extrabold text-on-surface">$545,500</span>
+</div>
+</div>
+</section>
+<!-- Insights / Trends -->
+<section class="col-span-12 bg-white/40 border border-white/20 rounded-2xl p-8 flex flex-col md:flex-row gap-8 items-center">
+<div class="md:w-1/3">
+<div class="inline-flex items-center gap-2 bg-primary-fixed px-3 py-1 rounded-full text-[10px] font-bold text-on-primary-fixed mb-4">
+<span class="material-symbols-outlined text-xs">auto_awesome</span>
+                        AI INSIGHT
+                    </div>
+<h4 class="font-headline text-xl font-extrabold mb-2">Forecast Neutrality at Risk</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Based on current vendor velocity, your cash-on-hand will dip below the 5-day threshold by Thursday. Consider deferring the $180k CapEx payment scheduled for tomorrow.</p>
+</div>
+<div class="md:w-2/3 h-32 w-full flex items-center justify-center bg-surface-container/30 rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 opacity-10">
+<img class="w-full h-full object-cover" data-alt="abstract digital data visualization with flowing lines and glowing points on dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbhI1urdqUq-sbwpaRcN9lGivMIokwFSi32k_u_d5c1LF8dctxyVfvIDmwdeQgIp4xABtIQVhD0jM5V9xwbfkXMkwSWN7Y_uTq9DdFIMZQnZXcNXIFNr8BB9AbsomhAkv03X6I4fPt7UZHqe4rPwLx-KUINLcNtFxdkzCHMxUp4LLwnUuMZFCpvSFHI83_RQ_9V0emtuuUb5xNLx0SKylUc0dOgAQmwFEHwAyzMytMhNi5ZXtgrtDOLcU6QiHngIVJxGt6NYi9yBY"/>
+</div>
+<div class="relative z-10 flex gap-1 items-end h-16 w-full px-10">
+<!-- Sparkline mock -->
+<div class="flex-1 bg-outline/20 rounded-full h-4"></div>
+<div class="flex-1 bg-outline/20 rounded-full h-6"></div>
+<div class="flex-1 bg-outline/20 rounded-full h-10"></div>
+<div class="flex-1 bg-outline/20 rounded-full h-12"></div>
+<div class="flex-1 bg-primary rounded-full h-16 shadow-lg shadow-primary/20"></div>
+<div class="flex-1 bg-primary rounded-full h-14"></div>
+<div class="flex-1 bg-primary rounded-full h-12"></div>
+<div class="flex-1 bg-error rounded-full h-8 animate-pulse"></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Only for main flows) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="gradient-primary text-white p-4 rounded-full shadow-2xl flex items-center gap-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">add</span>
+<span class="font-headline text-sm font-bold pr-2">New Transaction</span>
+</button>
+</div>
+</body></html>
