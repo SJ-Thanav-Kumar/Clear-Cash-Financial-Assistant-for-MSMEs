@@ -16,6 +16,15 @@ dist/
 # Env
 .env
 .env.local
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
 .env.development.local
 .env.test.local
 .env.production.local

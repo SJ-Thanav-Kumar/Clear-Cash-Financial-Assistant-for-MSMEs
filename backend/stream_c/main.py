@@ -12,13 +12,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from .routes import router
+from stream_c.routes import router as stream_c_router
+from stream_b.routes import router as stream_b_router
 
 load_dotenv()
 
 app = FastAPI(
-    title="ClearCash — Stream C: Database Layer",
-    description="Validation gate, batch write, and quarantine management for financial records.",
+    title="ClearCash — Backend",
+    description="Financial Records Pipeline (Stream B & C)",
     version="1.0.0",
 )
 
@@ -34,9 +35,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(router)
-
+app.include_router(stream_c_router)
+app.include_router(stream_b_router)
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "service": "stream_c"}
+    return {"status": "ok", "service": "clearcash_backend"}

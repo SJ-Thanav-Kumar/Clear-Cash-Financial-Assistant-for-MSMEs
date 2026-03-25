@@ -117,6 +117,41 @@ export async function correctQuarantineRecord(quarantineId, correction) {
 }
 
 // ----------------------------------------------------------------
+// Receipts Processing (Stream B)
+// ----------------------------------------------------------------
+
+/**
+ * Upload a receipt image for OCR / Vision extraction processing.
+ * Stream B handles preprocessing, LLM fallback, and writes to Stream C automatically.
+ *
+ * @param {string} sessionId
+ * @param {File} file  - The image file from an <input type="file">
+ * @returns {{
+ *   status: 'validated' | 'quarantined',
+ *   transaction_record_id?: string,
+ *   quarantine_record_id?: string,
+ *   reason?: string,
+ *   data?: object
+ * }}
+ */
+export async function uploadReceipt(sessionId, file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("session_id", sessionId);
+
+  const res = await fetch(`${API_BASE}/api/receipts/upload`, {
+    method: "POST",
+    body: formData, // do not set Content-Type header manually for FormData!
+  });
+  
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data?.detail ?? `Request failed: ${res.status}`);
+  }
+  return data;
+}
+
+// ----------------------------------------------------------------
 // Health check
 // ----------------------------------------------------------------
 

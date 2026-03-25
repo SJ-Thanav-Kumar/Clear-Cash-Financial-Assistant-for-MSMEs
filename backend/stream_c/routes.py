@@ -28,6 +28,24 @@ from .writer import (
 router = APIRouter(prefix="/api", tags=["stream_c"])
 
 
+@router.get("/transactions")
+def list_transactions(limit: int = 50):
+    """
+    Retrieve the most recently successfully passed transactions.
+    """
+    try:
+        response = supabase.table("transactions")\
+            .select("*")\
+            .order("created_at", desc=True)\
+            .limit(limit)\
+            .execute()
+        return {"transactions": response.data}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# ----------------------------------------------------------------
+# C3. Quarantine Management
+# ----------------------------------------------------------------
 # ----------------------------------------------------------------
 # POST /api/sessions — create a new upload session
 # ----------------------------------------------------------------
