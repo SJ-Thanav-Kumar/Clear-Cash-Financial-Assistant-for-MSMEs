@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 ### 1. **Neural Sync (Data Ingestion)**
 - **Intelligent Parsers**: Extract data directly from unstructured sources like generic bank statements (PDF) and physical receipts (Images).
@@ -24,7 +24,7 @@
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 **Backend (The Intelligence Engine)**
 * **Framework**: FastAPI (Python)
@@ -41,7 +41,7 @@
 
 ---
 
-## 💻 Local Development Setup
+## Local Development Setup
 
 ### Preliminaries
 Ensure you have the following installed on your machine:
@@ -77,5 +77,5 @@ Once both servers are running:
 ---
 
 ## 🛡️ License & Authorship
-Developed by **SJ-Thanav-Kumar**.
+Developed by **SJ Thanav Kumar**, **Pranav Shreyas TC**, **Sharon Mariam Abhraham**, **Sreyas Shyam**.
 ClearCash — Designed for resilience, optimized for clarity.
