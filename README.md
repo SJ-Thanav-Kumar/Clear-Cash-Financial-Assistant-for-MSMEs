@@ -19,7 +19,7 @@
 ### 3. **The Decision Engine (Priority Rankings)**
 - **Smart Staggering**: Automatically scores unfulfilled commitments (payables) on a 0-100 scale, categorizing them as `PRIORITY`, `STAGGER`, or `DELAY`.
 - **Explainability Tracing**: Each generated priority score explicitly details *why* the AI weighted it that way. For example:
-  - `+40 (Critical Category)` for essential obligations like GST/Taxes or Salary.
+  - `+40 (Critical Category)` for important obligations like GST/Taxes or Salary.
   - `-20 (High Cash Impact: 45%)` to protect capital ratios if a payment exceeds 10% of operating cash.
 
 ---
