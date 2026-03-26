@@ -1,0 +1,12 @@
+﻿=== Reading: C:\Users\prana\Downloads\dummy_statement.pdf ===
+
+
+--- PAGE 1 (extract_text) ---
+
+--- PAGE 1 (extract_table) ---
+  (no table found)
+
+--- PAGE 2 (extract_text) ---
+
+--- PAGE 2 (extract_table) ---
+  (no table found)

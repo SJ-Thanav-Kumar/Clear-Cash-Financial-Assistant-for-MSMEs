@@ -1,0 +1,19 @@
+# Node
+node_modules/
+dist/
+build/
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+env/
+venv/
+.venv/
+*.db
+backend/temp_uploads/
+
+# IDEs
+.vscode/
+.idea/

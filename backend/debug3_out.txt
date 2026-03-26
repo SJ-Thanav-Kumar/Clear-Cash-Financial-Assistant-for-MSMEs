@@ -1,0 +1,81 @@
+﻿Has text layer: False
+Running OCR...
+Total lines from OCR: 77
+
+--- First 60 non-empty lines ---
+'SAMPLE'
+'Statement of Account'
+'12345678'
+'JAMES C. MORRISON'
+'1765 SHERIDAN DRIVE'
+'YOUR CITY, USA 03087'
+'Page 1 of 2'
+'You have successfully opened a sample statement in PDF format.'
+'Please continue with your e-Statement enrollment.'
+'Summary of Your Account'
+'Beginning balance on October 10 $69.96 Avg Collected Balance $643.24'
+'+ Deposits and other credits $1,876.02 Interest Paid YTD $3.13'
+'+ Interest paid $0.26'
+'- Withdrawals and other debits $1,320.02'
+'- Service Charges and Fees $12.00 Interest-bearing Days 30'
+'Ending balance on November 9 $586.71 Average Balance for APY $643.24'
+'Interest Earned $0.26'
+'Activity for Relationship Checking - Account #12345678'
+'Account Transactions by date with daily balance information'
+'Date Description Debit Credit Balance'
+'10/02 POS PURCHASE 4.23 65.73'
+'10/03 PREAUTHORIZED CREDIT 763.01 828.74'
+'10/04 POSPURCHASE 11.68 817.06'
+'10/05 CHECK 1234 9.98 807.08'
+'10/05 POSPURCHASE 25.50 781.58'
+'10/08 POSPURCHASE 59.08 722.50'
+'10/12 CHECK 1236 69.00 653.50'
+'10/14 CHECK 1237 180.63 472.87'
+'10/14 POSPURCHASE 18.96 453.91'
+'10/16 PREAUTHORIZED CREDIT 763.01 1216.92'
+'10/22 ATMWITHDRAWAL 140.00 1076.92'
+'10/28 CHECK 1238 91.06 985.86'
+'10/30 CHECK 1239 451.20 534.66'
+'10/30 CHECK 1246 37.07 497.59'
+'10/30 POSPURCHASE 18.67 478.92'
+'10/31 CHECK 1247 100.00 378.92'
+'10/31 CHECK 1248 78.24 300.68'
+'10/31 PREAUTHORIZED CREDIT 350.00 650.68'
+'11/02 CHECK 1249 52.23 598.45'
+'11/09 INTEREST CREDIT 26 598.71'
+'11/09 SERVICE CHARGE 12.00 586.71'
+'Account # 12345678'
+'Page 2 of 2'
+'Activity for Relationship Checking - Account #12345678 continued'
+'Account Transactions by type with detailed description'
+'Deposits and Other Credits'
+'Date Description Amount'
+'10/03 PREAUTHORIZEDCREDIT _ PAYROLL0987654678990 763.01'
+'10/16 PREAUTHORIZED CREDIT ù_ USTREASURY 310 SOC SEC 020802 509499853A SSA 763.01'
+'10/31 PREAUTHORIZED CREDIT _ DEPOSIT TERMINAL $097094 09809 5:23 PM 097083740597380032 350.00'
+'11/09 INTEREST CREDIT 0.26'
+'Withdrawals and Other Debits'
+'Date Description Amount'
+'10/02 POSPURCHASE TERMINAL 24349201 WAL-MART#3492 WICHITA KS 00-00-00 00:00 PM 0000000000000000 4.23'
+'10/04 POSPURCHASE TERMINAL 443565 PLAYERS SPORTS BARAND GRILL WICHITAKS 00-00-00 00:00 PM 0000000000000000 11.68'
+'10/05 POSPURCHASE TERMINAL 422443 KWAN COURT WICHITA KS 00-00-00 00:00 PM 0000000000000000 25.50'
+'10/07 POSPURCHASE TERMINAL 098765 THE HOME DEPOT 2204 WICHITA KS 00-00-00 00:00 AM 0000000000000000 31.57'
+'10/14 POSPURCHASE TERMINAL 098765 0000 000 WICHITA KS 00-00-00 00:00 PM c000000000000000 18.96'
+'10/22 ATMWITHDRAWAL CASH WITHDRAWAL TERMINAL $78476 3216 EAST HARRY WICHITAKS 00-00-00 00:00 AM 0000000000000000 140.00'
+'10/30 POS PURCHASE TERMINAL 098765 DILLONS 0000 000 WICHITA KS 00-00-00 00:00 PM 0000000000000000 18.67'
+
+--- Running full parser ---
+Parsed 13 transactions:
+  2026-10-05  CHECK                                       -1234.00
+  2026-10-12  CHECK                                       -1236.00
+  2026-10-14  CHECK                                       -1237.00
+  2026-10-22  ATMWITHDRAWAL                                -140.00
+  2026-10-28  CHECK                                       -1238.00
+  2026-10-30  CHECK                                       -1239.00
+  2026-10-30  CHECK                                       -1246.00
+  2026-10-31  CHECK                                       -1247.00
+  2026-10-31  CHECK                                       -1248.00
+  2026-11-02  CHECK                                       -1249.00
+  2026-11-09  SERVICE CHARGE                                -12.00
+  2026-10-22  ATMWITHDRAWAL CASH WITHDRAWAL TERMINAL $     -140.00
+  2026-11-09  SERVICE CHARGE                                -12.00
